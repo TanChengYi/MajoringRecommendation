@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Majoring Recommendation</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string-array name="type">
+        <item>Student</item>
+        <item>Staff</item>
+    </string-array>
+</resources>
