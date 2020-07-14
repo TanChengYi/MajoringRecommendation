@@ -106,10 +106,7 @@ public class RecommendationActivity extends AppCompatActivity {
 
         // request queue
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         requestQueue.add(stringRequest);
-
-
     }
 
 }

@@ -62,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please enter proper email address",
                             Toast.LENGTH_LONG).show();
                 }
-                else if (mt.length()<4) {
+                else if (mt.length()<6) {
                     Toast.makeText(getApplicationContext(),
                             "Please enter Matric or Staff number", Toast.LENGTH_LONG).show();
                 }

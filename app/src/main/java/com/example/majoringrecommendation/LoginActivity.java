@@ -3,6 +3,7 @@ package com.example.majoringrecommendation;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private boolean loggedIn = false;
     EditText email, password;
     Button btn_login;
     TextView forgot_password,register;
@@ -79,6 +81,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+            }
+        });
         btn_login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
@@ -107,10 +115,21 @@ public class LoginActivity extends AppCompatActivity {
 
                         //If we are getting success from server
                         if(response.equalsIgnoreCase("success")){
+                            //Creating a shared preference
+                            SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences("user", Context.MODE_PRIVATE);
+
+                            //Creating editor to store values to shared preferences
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                            //Adding values to editor
+                            editor.putBoolean("loggedin", true);
+                            editor.putString("user_email", userEmailID);
+                            editor.commit();
 
                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
                             user.setEmail(userEmailID);
+                            user.setPassword(passwordP);
                             i.putExtra("UserDetails",user);
                             startActivity(i);
                             finish();
@@ -174,6 +193,8 @@ public class LoginActivity extends AppCompatActivity {
 
                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                             Intent i = new Intent(LoginActivity.this, adminMain.class);
+                            user.setEmail(userEmailID);
+                            i.putExtra("UserDetails",user);
                             startActivity(i);
                             finish();
 
@@ -221,6 +242,23 @@ public class LoginActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    protected void onResume() {
+        super.onResume();
+        //In onresume fetching value from sharedpreference
+        SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
 
+        //Fetching the boolean value form sharedpreferences
+        loggedIn = sharedPreferences.getBoolean("loggedin", false);
 
+        //If we will get true
+        if(loggedIn) {
+            //We will start the Profile Activity
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            final String email=sharedPreferences.getString("user_email","Not Available");
+            user.setEmail(email);
+            intent.putExtra("UserDetails",user);
+            startActivity(intent);
+            finish();
+        }
+    }
 }

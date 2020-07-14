@@ -27,7 +27,7 @@ import java.util.Map;
 public class QuestionActivity extends AppCompatActivity {
     Button submit;
     User user;
-    RadioGroup rg1,rg2;
+    RadioGroup rg1,rg2,rg3,rg4,rg5,rg6,rg7;
     int se,im,is,cn;
     int totse,totim,totis,totcn;
     int avgse,avgim,avgis,avgcn;
@@ -39,13 +39,20 @@ public class QuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question);
 
         rg1=findViewById(R.id.q1);
+        rg2=findViewById(R.id.q2);
+        rg3=findViewById(R.id.q3);
+        rg4=findViewById(R.id.q4);
+        rg5=findViewById(R.id.q5);
+        rg6=findViewById(R.id.q6);
+        rg7=findViewById(R.id.q7);
         user=(User)getIntent().getSerializableExtra("UserDetails");
 
         submit=findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rg1.getCheckedRadioButtonId()!=-1){
+                if(rg1.getCheckedRadioButtonId()!=-1 && rg2.getCheckedRadioButtonId()!=-1 && rg3.getCheckedRadioButtonId()!=-1 && rg4.getCheckedRadioButtonId()!=-1
+                        && rg5.getCheckedRadioButtonId()!=-1&& rg6.getCheckedRadioButtonId()!=-1&& rg7.getCheckedRadioButtonId()!=-1){
                     analysis();
                     uploadRecommendation();
                 }else{
@@ -76,6 +83,7 @@ public class QuestionActivity extends AppCompatActivity {
         totcn+=10;
         totim+=10;
         totis+=10;
+
         rg2=findViewById(R.id.q2);
         group=rg2.getCheckedRadioButtonId();
         if(group==R.id.op1){
@@ -90,11 +98,93 @@ public class QuestionActivity extends AppCompatActivity {
         }else if(group==R.id.op4){
             se+=0;
             is+=0;
+        }
+        totse+=10;
+        totis+=10;
+
+        rg3=findViewById(R.id.q3);
+        group=rg3.getCheckedRadioButtonId();
+        if(group==R.id.q3o1){
+            im+=8;cn+=7;is+=10;se+=10;
+        }else if(group==R.id.q3o2){
+            im+=5;cn+=4;is+=7;se+=7;
+        }else if(group==R.id.q3o3){
+            im+=3;cn+=2;is+=5;se+=5;
+        }else if(group==R.id.q3o4){
+            im+=0;cn+=0;is+=0;se+=0;
+        }
+        totse+=10;
+        totcn+=7;
+        totim+=8;
+        totis+=10;
+
+        rg4=findViewById(R.id.q4);
+        group=rg4.getCheckedRadioButtonId();
+        if(group==R.id.q4o1){
+            im+=10;cn+=5;is+=8;se+=5;
+        }else if(group==R.id.q4o2){
+            im+=7;cn+=2;is+=5;se+=2;
+        }else if(group==R.id.q4o3){
+            im+=5;cn+=1;is+=3;se+=1;
+        }else if(group==R.id.q4o4){
+            im+=0;cn+=0;is+=0;se+=0;
+        }else{
+
+        }
+        totse+=5;
+        totcn+=5;
+        totim+=10;
+        totis+=8;
+
+        rg5=findViewById(R.id.q5);
+        group=rg5.getCheckedRadioButtonId();
+        if(group==R.id.q5o1){
+            is+=10;
+        }else if(group==R.id.q5o2){
+            is+=8;
+        }else if(group==R.id.q5o3){
+            is+=5;
+        }else if(group==R.id.q5o4){
+            is+=0;
+        }else{
+
+        }
+        totis+=10;
+
+        rg6=findViewById(R.id.q6);
+        group=rg6.getCheckedRadioButtonId();
+        if(group==R.id.q6o1){
+            cn+=10;se+=8;
+        }else if(group==R.id.q6o2){
+            cn+=7;se+=5;
+        }else if(group==R.id.q6o3){
+            cn+=5;se+=3;
+        }else if(group==R.id.q6o4){
+            cn+=0;se+=0;
+        }else{
+
+        }
+        totse+=8;
+        totcn+=10;
+
+        rg7=findViewById(R.id.q7);
+        group=rg7.getCheckedRadioButtonId();
+        if(group==R.id.q7o1){
+            im+=8;cn+=8;is+=9;se+=10;
+        }else if(group==R.id.q7o2){
+            im+=5;cn+=5;is+=6;se+=7;
+        }else if(group==R.id.q7o3){
+            im+=3;cn+=3;is+=4;se+=5;
+        }else if(group==R.id.q7o4){
+            im+=0;cn+=0;is+=0;se+=0;
         }else{
 
         }
         totse+=10;
-        totis+=10;
+        totcn+=8;
+        totim+=8;
+        totis+=9;
+
         avgse=(se/totse)*100;
         avgis=(is/totis)*100;
         avgim=(im/totim)*100;
