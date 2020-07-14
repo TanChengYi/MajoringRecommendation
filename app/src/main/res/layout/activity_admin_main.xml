@@ -22,7 +22,7 @@
         android:textColor="#fff"
         android:id="@+id/manage"
         android:background="@color/colorPrimary"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center"/>
 
     <Button

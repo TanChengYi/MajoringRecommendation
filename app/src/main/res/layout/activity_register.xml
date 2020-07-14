@@ -61,7 +61,7 @@
             android:layout_marginEnd="16dp"
             android:background="@android:color/black"
             android:ems="10"
-            android:hint="MatrixNo/StaffNo"
+            android:hint="MatrixNo"
             android:inputType="textPersonName"
             android:layout_marginTop="16dp"
             android:padding="10dp"

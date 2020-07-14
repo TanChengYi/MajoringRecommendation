@@ -16,125 +16,77 @@
         android:layout_marginBottom="50dp"
         app:srcCompat="@drawable/logo" />
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="center">
+        android:background="#A1A8FE"
+        android:orientation="vertical">
 
-        <TableRow
+        <TextView
+            android:id="@+id/aemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp">
+            android:layout_marginLeft="20dp"
+            android:text="Email"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:background="#A1A8FE"
-                android:text="Email"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:background="#C9CDFF"
-                android:text="emailText"/>
-
-        </TableRow>
-
-        <TableRow
+        <TextView
+            android:id="@+id/aNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp">
+            android:layout_marginLeft="20dp"
+            android:text="StaffNo"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:background="#A1A8FE"
-                android:text="Staff No"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:background="#C9CDFF"
-                android:text="userid"/>
-
-        </TableRow>
-
-        <TableRow
+        <TextView
+            android:id="@+id/aName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp">
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Username"
-                android:background="#A1A8FE" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="username"
-                android:background="#C9CDFF"/>
-
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp">
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Password"
-                android:background="#A1A8FE"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="PasswordText"
-                android:background="#C9CDFF"/>
-
-        </TableRow>
-    </TableLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
-
-        <Button
-            android:id="@+id/edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:background="@color/colorPrimary"
-            android:text="Edit"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:textColor="#fff" />
-
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Back"
-            android:id="@+id/back"
-            android:textColor="#fff"
-            android:background="@color/colorPrimary"
-            android:layout_marginTop="50dp" />
+            android:layout_marginLeft="20dp"
+            android:text="Username"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/achgUname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorPrimary"
+            android:text="Update Username"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/achgPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorPrimary"
+            android:text="Update Password"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/aback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorPrimary"
+            android:text="Back"
+            android:textColor="#fff" />
+
+    </LinearLayout>
 </LinearLayout>
